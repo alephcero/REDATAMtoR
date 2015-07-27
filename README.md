@@ -11,4 +11,4 @@ The functiones takes two parameters **archivo**, the path to the csv file, and *
 
 - Translate the function's comments 
 - Improve the **chequeo** parameter 
-- Develop another function that takes *CROSSTABS and another types of REDATAM's outputs
+- Develop another function that takes *CROSSTABS* and another types of REDATAM's outputs
