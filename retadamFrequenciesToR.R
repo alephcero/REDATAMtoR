@@ -99,9 +99,9 @@ leerTablasRedatam = function(archivo,chequeo=FALSE) {
     sonIdenticas = identical(as.numeric(rowSums(base[,2:ncol(base)])),as.numeric(validacion$Casos[1:(nrow(validacion)-1)]))
     
     if (sonIdenticas) {
-      print("La suma de los radios coincide con los totales en la tabla resumen")
+      warning("La suma de los radios coincide con los totales en la tabla resumen")
     } else {
-      print("ATENCIÓN: La suma de los radios NO coincide con los totales en la tabla resumen")
+      stop("ATENCIÓN: La suma de los radios NO coincide con los totales en la tabla resumen")
       }
     
     #se vuelve a limpiar la base
