@@ -7,6 +7,11 @@ This function takes a frequencies output of REDATAM with *RADIOS* as AREABREAKS 
 
 The functiones takes two parameters **archivo**, the path to the csv file, and **chequeo**, a boolean where TRUE means it first runs a subrutine to check wether the sum of the RADIOS's totals adds up to the full totals given by the REDATAM original file under the *RESUMEN* title.   
 
+## retadamAveragesToR
+
+This function takes an ASCII redatam exported text file with **AVERAGES** of a variable with **RADIOS** (Argentine Census) as *areabreaks* and returns a data.frame objet within the R enviroment. It does not saves the output as a csv, rda o rds file.
+
+
 # Future work
 
 - Translate the function's comments 
