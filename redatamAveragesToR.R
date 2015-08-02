@@ -7,10 +7,15 @@ redatamAverages = function(archivo) {
   #Read files in ASCII format
   data = readLines(archivo)
   data = iconv(data, "latin1", "utf-8")
+  data = gsub(".","",data,fixed = TRUE)
   
   #Removes any empty tables
-  posicionTablasVacias = grep("Tabla",data)
-  data = data[-(posicionTablasVacias-2)]
+
+  if(sum(grepl("Tabla",data))>0){
+    posicionTablasVacias = grep("Tabla",data)
+    data = data[-(posicionTablasVacias-2)]    
+  }
+
   
   #Creates a data.frame with the areas
   posicionAreas = grep("AREA",data)
