@@ -15,9 +15,19 @@ redatamAverages = function(archivo) {
   #Creates a data.frame with the areas
   posicionAreas = grep("AREA",data)
   areas = data[posicionAreas]
+  areas = gsub(" ","",areas)
   areas = as.data.frame(areas)
   areas = colsplit(areas$areas,"\t",c("vacio1","area"))
   areas = as.data.frame(areas[,2])
+  names(areas)="areas"
+  
+  areas$LINK = substr(areas$areas,6,14)
+  areas$comuna = as.numeric(substr(areas$areas,8,10))
+  areas$fraccion = as.numeric(substr(areas$areas,11,12))
+  areas$radio = as.numeric(substr(areas$areas,13,14))
+  areas$CO_FRAC_RA = paste(areas$comuna,areas$fraccion,areas$radio,sep="_")
+  
+  
   
   #Gets the data set for the variable ante the amount of households
   posicionDatos = grep("Total y Promedio",data)
@@ -47,8 +57,6 @@ redatamAverages = function(archivo) {
   } else {
     stop("ATENCIÓN: La suma de los radios NO coincide con los totales en la tabla resumen o no son la misma cantidad de areas y datos")
   }
-  
-  
 }
 
 
