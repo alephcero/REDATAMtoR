@@ -43,6 +43,7 @@ redatamAverages = function(archivo) {
   
   if(check1 & check2){
     base = cbind(areas,datos)
+    base
   } else {
     stop("ATENCIÓN: La suma de los radios NO coincide con los totales en la tabla resumen o no son la misma cantidad de areas y datos")
   }
